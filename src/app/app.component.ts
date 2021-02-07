@@ -24,7 +24,7 @@ export class AppComponent  implements OnInit{
   appareilOne = 'Machine à laver';
   appareilTwo = 'Frigo';
   appareilThree = 'Ordinateur';*/
-
+//declaration d'untableau d'appareils.Ici, le contenu du tableau se trouve dans la classe AppareilService
   appareils: any[];
 
   constructor( private appareilService : AppareilService) {

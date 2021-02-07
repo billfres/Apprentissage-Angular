@@ -1,4 +1,5 @@
 export class AppareilService {
+  //tableau d'appareils
     appareils = [
         {
           name: 'Machine à laver',

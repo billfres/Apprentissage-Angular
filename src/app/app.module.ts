@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AppareilComponent } from './appareil/appareil.component';
 import { FormsModule } from '@angular/forms';
-
+//import de AppareilService et ajout de AppareilService dans providers
 import{ AppareilService } from './services/appareil.service';
 
 @NgModule({

@@ -36,6 +36,7 @@ export class AppareilComponent implements OnInit {
       this.appareilService.switchOnOne(this.indexOfAppareil);
     }
   }
+  // soit on commente les 2 fonctions en bas et on laisse la fonction onSwitch
  /* onSwitch(){
     this.appareilService.switchOnOne(this.indexOfAppareil);
   }
