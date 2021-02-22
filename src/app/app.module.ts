@@ -1,3 +1,4 @@
+import { AuthGuard } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Component } from '@angular/core';
@@ -16,8 +17,8 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 
 //creation des routes
 const appRoutes: Routes = [
-  { path: 'appareils', component: AppareilViewComponent},
-  { path: 'appareils/:id', component: SingleAppareilComponent},
+  { path: 'appareils',  canActivate: [AuthGuard], component: AppareilViewComponent},
+  { path: 'appareils/:id', canActivate: [AuthGuard], component: SingleAppareilComponent},
   { path: 'auth', component: AuthComponent},
   { path: '', component: AppareilViewComponent},
   { path: 'not-found', component: FourOhFourComponent},
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     AppareilService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
