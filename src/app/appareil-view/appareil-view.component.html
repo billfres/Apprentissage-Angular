@@ -8,7 +8,7 @@
     <p>Mis à jour : {{ lastUpdate | date: 'EEEE-d-MMMM-y' | uppercase }}</p> -->
     <p>Mis à jour : {{ lastUpdate | async | date: 'yMMMMEEEEd' | uppercase }}</p>
     <ul class="list-group">
-        <app-appareil *ngFor="let appareil of appareils; let i = index" [appareilName]="appareil.name" [appareilStatus]="appareil.status" [indexOfAppareil]="i">
+        <app-appareil *ngFor="let appareil of appareils; let i = index" [appareilName]="appareil.name" [appareilStatus]="appareil.status" [indexOfAppareil]="i" [id]="appareil.id">
         </app-appareil>
     </ul>
     <button class="btn btn-success" [disabled]="!isAuth" (click)="onAllumer()">Tout allumer</button>
