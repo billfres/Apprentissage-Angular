@@ -1,5 +1,6 @@
 import { AppareilService } from './../services/appareil.service';
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -27,6 +28,7 @@ export class AppareilViewComponent implements OnInit {
   appareilThree = 'Ordinateur';*/
 //declaration d'untableau d'appareils.Ici, le contenu du tableau se trouve dans la classe AppareilService
   appareils: any[];
+  appareilSubscription: Subscription;
 
   constructor( private appareilService : AppareilService) {
     setTimeout(
@@ -36,8 +38,13 @@ export class AppareilViewComponent implements OnInit {
     );
   }
 
-  ngOnInit(){
-    this.appareils = this.appareilService.appareils;
+  ngOnInit() {
+    this.appareilSubscription = this.appareilService.appareilsSubject.subscribe(
+      (appareils: any[]) => {
+        this.appareils = appareils;
+      }
+    );
+    this.appareilService.emitAppareilSubject();
   }
 
   onAllumer() {
