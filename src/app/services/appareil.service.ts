@@ -60,4 +60,23 @@ export class AppareilService {
         this.appareils[i].status = 'éteint';
         this.emitAppareilSubject();
     }
+
+    addAppareil(name: string, status: string) {
+      //création d'un nouveau objet vide
+      const appareilObject = {
+        id: 0,
+        name: '',
+        status: ''
+      };
+
+      //attribution des arguments
+      appareilObject.name = name;
+      appareilObject.status = status;
+      appareilObject.id = this.appareils[(this.appareils.length - 1)].id + 1;
+      this.appareils.push(appareilObject);
+      this.emitAppareilSubject();
+      /*La ligne pour l'id prend l'id du dernier élément actuel de l'array et ajoute 1.  
+      Ensuite, l'objet complété est ajouté à l'array grace à push() et le Subject est déclenché pour tout garder à jour
+      */
+  }
 }
