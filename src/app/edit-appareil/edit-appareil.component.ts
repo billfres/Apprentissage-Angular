@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { AppareilService } from './../services/appareil.service';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
@@ -10,7 +12,8 @@ export class EditAppareilComponent implements OnInit {
 
   defaultOnOff = 'éteint';
 
-  constructor() { }
+  //injection( creation des variables de types Router et AppareilService) du Router et AppareilService
+  constructor(private appareilService: AppareilService,private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -18,6 +21,8 @@ export class EditAppareilComponent implements OnInit {
   onSubmit(form: NgForm) {
     const name = form.value['name'];
     const status = form.value['status'];
+    this.appareilService.addAppareil(name, status);
+    this.router.navigate(['/appareils']);
 }
 
 }
